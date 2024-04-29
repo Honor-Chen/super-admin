@@ -4,7 +4,18 @@ import Loading from "@/components/Loading"
 import { StyleProvider } from "@ant-design/cssinjs"
 import { ConfigProvider, ThemeConfig, theme } from "antd"
 import "antd/dist/reset.css"
-import { useAppConfig } from "@/store/config.ts"
+import { useAppConfig } from "@/store/config"
+import i18n from "i18next"
+
+// antd locals
+import zh from "antd/lib/locale/zh_CN"
+import en from "antd/lib/locale/en_US"
+import { Locale } from "antd/es/locale"
+
+const localeMap = {
+    en,
+    zh,
+} as Record<string, Locale>
 
 const themeModeToken: Record<"dark" | "light", ThemeConfig> = {
     dark: {
@@ -26,7 +37,18 @@ const themeModeToken: Record<"dark" | "light", ThemeConfig> = {
 }
 
 function App() {
-    const { themeMode, update, isDark } = useAppConfig()
+    const { themeMode, update, isDark, locale } = useAppConfig()
+
+    i18n.on("languageChanged", lng => {
+        update(state => {
+            state.locale = lng
+        })
+    })
+
+    useLayoutEffect(() => {
+        i18n.changeLanguage(locale)
+    }, [locale])
+
     useLayoutEffect(() => {
         const isAuto = themeMode === "system"
         const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -66,6 +88,7 @@ function App() {
     return (
         <StyleProvider hashPriority="high">
             <ConfigProvider
+                locale={localeMap[locale] || zh}
                 theme={{
                     token: {
                         colorPrimary: isDark ? "#4a9fee" : "#1890ff",

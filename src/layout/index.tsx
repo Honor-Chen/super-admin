@@ -1,17 +1,23 @@
+import { Layout as ALayout, Space } from "antd"
+import { Fragment } from "react"
+import PageManageProvider from "@/components/AdminPagesProvider"
+import { IconLayoutSidebarLeftCollapse, IconLayoutSidebarRightCollapse } from "@tabler/icons-react"
+import SearchMenuButton from "@/layout/components/SearchMenuButton"
+import NotificationButton from "@/layout/components/NotificationButton"
+import SettingsButton from "@/layout/components/SettingsButton"
+import AvatarAndDropdown from "@/layout/components/AvatarAndDropdown"
+import Tabs from "@/layout/components/Tabs"
 import KeepAliveOutlet from "@/layout/components/KeepAliveOutlet"
-import { Layout as ALayout } from "antd"
-import { Fragment, useState } from "react"
+import { useAppConfig } from "@/store/config.ts"
 import RenderMenu from "@/layout/components/RenderMenu"
 import ThemeSwitch from "@/components/ThemeSwitch"
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons"
-import PageManageProvider, { usePageContext } from "@/components/AdminPagesProvider"
-import Tabs from "@/layout/components/Tabs"
-import AdminLogo from "@/components/AdminLogo"
+import LanguageSelector from "@/components/LanguageSelector"
+import Breadcrumbs from "@/layout/components/Breadcrumbs"
+import usePageContext from "@/components/AdminPagesProvider/usePageContext"
 
 function Layout() {
-    const [collapsed, setCollapsed] = useState(false)
     const { pages, open, close, active } = usePageContext()
-
+    const { collapsed, update,showBreadcrumb } = useAppConfig()
     return (
         <Fragment>
             <ALayout className={"w-full h-screen"}>
@@ -22,7 +28,7 @@ function Layout() {
                     }}
                     className={"border-r dark:border-[#222] border-[#eee]"}
                     collapsed={collapsed}
-                    width={280}
+                    width={260}
                     theme="light"
                 >
                     {/*<div className={"logo flex justify-center h-[30px]"}>*/}
@@ -39,22 +45,38 @@ function Layout() {
                 </ALayout.Sider>
                 <ALayout>
                     <div className={"body w-full h-full overflow-auto dark:bg-[#161C24] bg-white"}>
-                        <header className={"h-[60px] flex justify-between items-center px-[15px]"}>
+                        <header className={"h-[60px]  flex justify-between items-center px-[15px]"}>
                             <div className={"flex items-center"}>
                                 <div
-                                    className={"cursor-pointer"}
+                                    className={"collapse-btn cursor-pointer text-[#637381] mr-[10px]"}
                                     onClick={() => {
-                                        setCollapsed(!collapsed)
+                                        update(config => {
+                                            config.collapsed = !config.collapsed
+                                        })
                                     }}
                                 >
-                                    {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                                    {collapsed ? (
+                                        <IconLayoutSidebarRightCollapse size={20} stroke={1.2} />
+                                    ) : (
+                                        <IconLayoutSidebarLeftCollapse size={20} stroke={1.2} />
+                                    )}
                                 </div>
+                                {
+                                    showBreadcrumb && <Breadcrumbs />
+                                }
                             </div>
                             <div className={"flex items-center"}>
-                                <ThemeSwitch />
+                                <Space>
+                                    <LanguageSelector />
+                                    <ThemeSwitch size={20} className={"text-[#637381]"} />
+                                    <SearchMenuButton />
+                                    <NotificationButton />
+                                    <SettingsButton />
+                                    <AvatarAndDropdown />
+                                </Space>
                             </div>
                         </header>
-                        <div className={"pages-tabs h-[36px]"}>
+                        <div className={"pages-tabs h-[33px]"}>
                             <Tabs
                                 active={active}
                                 onChange={key => {
@@ -74,15 +96,15 @@ function Layout() {
                                 })}
                             ></Tabs>
                         </div>
-                        <main
-                            className={"body"}
+                        <div
+                            className={"body w-full"}
                             style={{
-                                overflow: "auto",
-                                height: "calc(100vh - 96px)",
+                                overflow: "hidden",
+                                height: "calc(100vh - 93px)",
                             }}
                         >
                             <KeepAliveOutlet />
-                        </main>
+                        </div>
                     </div>
                 </ALayout>
             </ALayout>
