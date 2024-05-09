@@ -15,7 +15,11 @@
       "nested_menu1": "菜单1",
       "nested_menu2": "菜单2",
       "nested_menu2_1": "菜单2-1",
-      "nested_menu2_2": "菜单2-2"
+      "nested_menu2_2": "菜单2-2",
+      "no_search_result": "无搜索结果",
+      "to_navigate": "选择",
+      "to_open": "打开",
+      "items_number": "共 {{total}} 条"
     },
     "drawer": {
       "close": "关闭",

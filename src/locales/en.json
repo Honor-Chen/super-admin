@@ -15,7 +15,11 @@
       "nested_menu1": "Menu 1",
       "nested_menu2": "Menu 2",
       "nested_menu2_1": "Menu 2-1",
-      "nested_menu2_2": "Menu 2-2"
+      "nested_menu2_2": "Menu 2-2",
+      "no_search_result": "No Search Result",
+      "to_navigate": "to navigate",
+      "to_open": "to open",
+      "items_number": "Total {{total}} items"
     },
     "drawer": {
       "close": "Close",

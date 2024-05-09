@@ -1,6 +1,6 @@
 import { Fragment, ReactNode, useEffect, useMemo, useRef, useState } from "react"
 import { IconArrowDown, IconArrowUp, IconSearch } from "@tabler/icons-react"
-import { Divider, Input, InputRef, Modal } from "antd"
+import { Divider, Empty, Input, InputRef, Modal } from "antd"
 import { adminRoutesWithAbsolutePath, RouteConfig } from "@/router/config.tsx"
 import { mergePath } from "fortea"
 import { useAppAuth } from "@/store/auth.ts"
@@ -156,7 +156,7 @@ function SearchMenuButton() {
                             >
                                 <IconArrowDown size={16} stroke={2.6} />
                             </span>
-                            <span className={"ml-[10px]"}>to navigate</span>
+                            <span className={"ml-[10px]"}>{t("layout.menu.to_navigate")}</span>
                             {/*enter*/}
                             <span
                                 className={
@@ -165,9 +165,13 @@ function SearchMenuButton() {
                             >
                                 Enter
                             </span>
-                            <span className={"ml-[10px]"}>to select</span>
+                            <span className={"ml-[10px]"}>{t("layout.menu.to_open")}</span>
                         </div>
-                        <span>{menuItems.length} items</span>
+                        <span>
+                            {t("layout.menu.items_number", {
+                                total: menuItems.length,
+                            })}
+                        </span>
                     </div>
                 }
                 title={
@@ -215,7 +219,7 @@ function SearchMenuButton() {
                                         setShowSearch(false)
                                     }}
                                     onMouseEnter={() => {
-                                      !keyDownDeadingRef.current &&  setSelectedIndex(index)
+                                        !keyDownDeadingRef.current && setSelectedIndex(index)
                                     }}
                                     css={css`
                                         border: ${index === selectedIndex
@@ -244,6 +248,9 @@ function SearchMenuButton() {
                             </div>
                         )
                     })}
+                    {menuItems.length === 0 && (
+                        <Empty description={<span>{t("layout.menu.no_search_result")}</span>}></Empty>
+                    )}
                 </div>
             </Modal>
             <button
