@@ -19,9 +19,7 @@ function AvatarAndDropdown() {
             onClick: () => {
                 // window.localStorage.clear()
                 window.sessionStorage.clear()
-                navigate("/login")
-                // clean history stack
-                window.location.reload()
+                navigate("/login", { replace: true })
             },
             label: "Logout",
         },
