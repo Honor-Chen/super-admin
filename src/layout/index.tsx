@@ -14,10 +14,11 @@ import ThemeSwitch from "@/components/ThemeSwitch"
 import LanguageSelector from "@/components/LanguageSelector"
 import Breadcrumbs from "@/layout/components/Breadcrumbs"
 import usePageContext from "@/components/AdminPagesProvider/usePageContext"
+import AdminLogo from "@/components/AdminLogo"
 
 function Layout() {
     const { pages, open, close, active } = usePageContext()
-    const { collapsed, update,showBreadcrumb } = useAppConfig()
+    const { collapsed, update, showBreadcrumb } = useAppConfig()
     return (
         <Fragment>
             <ALayout className={"w-full h-screen"}>
@@ -31,9 +32,9 @@ function Layout() {
                     width={260}
                     theme="light"
                 >
-                    {/*<div className={"logo flex justify-center h-[30px]"}>*/}
-                    {/*    <AdminLogo height={30} width={40} />*/}
-                    {/*</div>*/}
+                    <div className={"logo flex justify-center h-[30px] mb-[10px]"}>
+                        <AdminLogo colorful height={40} width={40} />
+                    </div>
                     <div
                         className={
                             "px-[10px] w-full text-[--color-primary]  whitespace-nowrap overflow-hidden pt-[5px] text-[20px] pb-0 py-[10px] font-semibold text-center"
@@ -61,9 +62,7 @@ function Layout() {
                                         <IconLayoutSidebarLeftCollapse size={20} stroke={1.2} />
                                     )}
                                 </div>
-                                {
-                                    showBreadcrumb && <Breadcrumbs />
-                                }
+                                {showBreadcrumb && <Breadcrumbs />}
                             </div>
                             <div className={"flex items-center"}>
                                 <Space>
