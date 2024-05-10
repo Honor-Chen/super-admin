@@ -32,8 +32,8 @@ function Layout() {
                     width={260}
                     theme="light"
                 >
-                    <div className={"logo flex justify-center h-[30px] mb-[10px]"}>
-                        <AdminLogo colorful height={40} width={40} />
+                    <div className={"logo flex justify-center h-[30px]"}>
+                        <AdminLogo colorful size={30} />
                     </div>
                     <div
                         className={

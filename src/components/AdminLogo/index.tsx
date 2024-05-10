@@ -1,13 +1,12 @@
 import { css } from "@emotion/react"
 
 interface AdminLogoProps {
-    height?: number
-    width?: number
+    size?: number
     colorful?: boolean
 }
 
 function AdminLogo(props: AdminLogoProps) {
-    const { height = 50, width = 50, colorful = false } = props
+    const { size = 50, colorful = false } = props
     return (
         <div
             css={css`
@@ -21,8 +20,8 @@ function AdminLogo(props: AdminLogoProps) {
             <svg
                 version="1.0"
                 xmlns="http://www.w3.org/2000/svg"
-                width={width + "px"}
-                height={height + "px"}
+                width={size + "px"}
+                height={size + "px"}
                 viewBox="0 0 300.000000 294.000000"
                 preserveAspectRatio="xMidYMid meet"
                 fill="currentColor"
