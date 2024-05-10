@@ -67,7 +67,7 @@ function SearchMenuButton() {
         return items
     }, [permissions, searchValue])
 
-    const keyDownDeadingRef = useRef(false)
+    const keyDownDealingRef = useRef(false)
 
     // listen to keydown event to navigate and select when search modal is open
     useEffect(() => {
@@ -79,7 +79,7 @@ function SearchMenuButton() {
                         scrollSelectedIntoView(next)
                         return next
                     })
-                    keyDownDeadingRef.current = true
+                    keyDownDealingRef.current = true
                 }
                 if (e.key === "ArrowUp") {
                     setSelectedIndex(prev => {
@@ -87,7 +87,7 @@ function SearchMenuButton() {
                         scrollSelectedIntoView(next)
                         return next
                     })
-                    keyDownDeadingRef.current = true
+                    keyDownDealingRef.current = true
                 }
                 if (e.key === "Enter") {
                     const url = menuItems[selectedIndex].url
@@ -207,7 +207,7 @@ function SearchMenuButton() {
                     className={"py-[10px]"}
                     ref={listRef}
                     onMouseEnter={() => {
-                        keyDownDeadingRef.current = false
+                        keyDownDealingRef.current = false
                     }}
                 >
                     {menuItems.map((item, index) => {
@@ -219,7 +219,7 @@ function SearchMenuButton() {
                                         setShowSearch(false)
                                     }}
                                     onMouseEnter={() => {
-                                        !keyDownDeadingRef.current && setSelectedIndex(index)
+                                        !keyDownDealingRef.current && setSelectedIndex(index)
                                     }}
                                     css={css`
                                         border: ${index === selectedIndex
