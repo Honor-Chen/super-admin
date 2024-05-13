@@ -33,7 +33,7 @@ export const useAppAuth = create(
             name: storageKeys.auth,
             version: 1,
             // set with sessionStorage
-            storage: createJSONStorage(() => sessionStorage),
+            // storage: createJSONStorage(() => sessionStorage),
         },
     ),
 )
