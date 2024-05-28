@@ -17,6 +17,7 @@ import usePageContext from "@/components/AdminPagesProvider/usePageContext"
 import AdminLogo from "@/components/AdminLogo"
 import { throttle } from "lodash"
 import DiscordButton from "@/layout/components/DiscordButton"
+import GithubButton from "@/layout/components/GithubButton"
 
 function Layout() {
     const { pages, open, close, active } = usePageContext()
@@ -24,7 +25,7 @@ function Layout() {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth < 940) {
+            if (window.innerWidth < 1000) {
                 update(config => {
                     config.collapsed = true
                 })
@@ -110,6 +111,7 @@ function Layout() {
                                     <ThemeSwitch size={20} className={"text-[#637381]"} />
                                     <SearchMenuButton />
                                     <DiscordButton />
+                                    <GithubButton />
                                     <NotificationButton />
                                     <SettingsButton />
                                     <AvatarAndDropdown />
