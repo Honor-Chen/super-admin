@@ -66,7 +66,7 @@ function Breadcrumbs() {
             }
         }
         return r
-    }, [url])
+    }, [url, i18n.language])
 
     return <div className={"flex items-center flex-wrap"}>{nodes}</div>
 }
