@@ -18,6 +18,7 @@ import AdminLogo from "@/components/AdminLogo"
 import { throttle } from "lodash"
 import DiscordButton from "@/layout/components/DiscordButton"
 import GithubButton from "@/layout/components/GithubButton"
+import SideDrawerMenuButton from "@/layout/components/SideDrawerMenuButton"
 
 function Layout() {
     const { pages, open, close, active } = usePageContext()
@@ -61,7 +62,7 @@ function Layout() {
                         overflow: "auto",
                         paddingTop: "10px",
                     }}
-                    className={"border-r dark:border-[#222] border-[#eee]"}
+                    className={"border-r dark:border-[#222] border-[#eee] pad:hidden"}
                     collapsed={collapsed}
                     width={260}
                     theme="light"
@@ -88,9 +89,9 @@ function Layout() {
                 <ALayout>
                     <div className={"body w-full h-full overflow-auto dark:bg-[#161C24] bg-white"}>
                         <header className={"h-[60px]  flex justify-between items-center px-[15px]"}>
-                            <div className={"flex items-center"}>
+                            <div className={"flex items-center pad:hidden"}>
                                 <div
-                                    className={"collapse-btn cursor-pointer text-[#637381] mr-[10px]"}
+                                    className={"collapse-btn cursor-pointer text-[#637381] mr-[10px] "}
                                     onClick={() => {
                                         update(config => {
                                             config.collapsed = !config.collapsed
@@ -104,6 +105,9 @@ function Layout() {
                                     )}
                                 </div>
                                 {showBreadcrumb && <Breadcrumbs />}
+                            </div>
+                            <div className={"side-drawer-btn pad:block hidden"}>
+                                <SideDrawerMenuButton />
                             </div>
                             <div className={"flex items-center"}>
                                 <Space>
