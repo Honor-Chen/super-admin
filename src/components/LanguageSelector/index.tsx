@@ -6,12 +6,12 @@ import { Dropdown } from "antd"
 const languageMap = [
     {
         value: "en",
-        label: "English",
+        label: "🇬🇧 English",
         short: "En",
     },
     {
         value: "zh",
-        label: "中文",
+        label: "🇨🇳 中文",
         short: "Zh",
     },
 ]
@@ -67,7 +67,7 @@ function LanguageSelector() {
             >
                 <button
                     className={
-                        "text-[#637381] cursor-pointer flex items-center justify-center p-[8px] hover:bg-[#f5f5f5] rounded-[50%] dark:hover:bg-[#212B36]"
+                        "text-[#637381] cursor-pointer flex items-center justify-center p-[8px] hover:bg-[#f5f5f5] rounded-[50%] dark:hover:bg-[#212B36] w-[36px] h-[36px] "
                     }
                 >
                     <div className={"text-center text-[15px]"}>{currentLang?.short}</div>

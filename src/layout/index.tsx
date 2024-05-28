@@ -16,6 +16,7 @@ import Breadcrumbs from "@/layout/components/Breadcrumbs"
 import usePageContext from "@/components/AdminPagesProvider/usePageContext"
 import AdminLogo from "@/components/AdminLogo"
 import { throttle } from "lodash"
+import DiscordButton from "@/layout/components/DiscordButton"
 
 function Layout() {
     const { pages, open, close, active } = usePageContext()
@@ -108,6 +109,7 @@ function Layout() {
                                     <LanguageSelector />
                                     <ThemeSwitch size={20} className={"text-[#637381]"} />
                                     <SearchMenuButton />
+                                    <DiscordButton />
                                     <NotificationButton />
                                     <SettingsButton />
                                     <AvatarAndDropdown />

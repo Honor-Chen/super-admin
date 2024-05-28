@@ -1,5 +1,5 @@
 import { useAppAuth } from "@/store/auth.ts"
-import { ReactNode, useEffect, useLayoutEffect, useMemo } from "react"
+import { ReactNode, useLayoutEffect, useMemo } from "react"
 import { adminRoutes, RouteConfig } from "@/router/config.tsx"
 import { isArray, mergePath } from "fortea"
 import { Menu } from "antd"
