@@ -1,5 +1,5 @@
 import { Layout as ALayout, Space } from "antd"
-import { Fragment } from "react"
+import { Fragment, useEffect, useRef } from "react"
 import PageManageProvider from "@/components/AdminPagesProvider"
 import { IconLayoutSidebarLeftCollapse, IconLayoutSidebarRightCollapse } from "@tabler/icons-react"
 import SearchMenuButton from "@/layout/components/SearchMenuButton"
@@ -15,10 +15,42 @@ import LanguageSelector from "@/components/LanguageSelector"
 import Breadcrumbs from "@/layout/components/Breadcrumbs"
 import usePageContext from "@/components/AdminPagesProvider/usePageContext"
 import AdminLogo from "@/components/AdminLogo"
+import { throttle } from "lodash"
 
 function Layout() {
     const { pages, open, close, active } = usePageContext()
     const { collapsed, update, showBreadcrumb } = useAppConfig()
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 940) {
+                update(config => {
+                    config.collapsed = true
+                })
+            } else {
+                update(config => {
+                    config.collapsed = false
+                })
+            }
+            // showBreadcrumb if screen width is greater than 768px
+            if (window.innerWidth > 768) {
+                update(config => {
+                    config.showBreadcrumb = true
+                })
+            } else {
+                update(config => {
+                    config.showBreadcrumb = false
+                })
+            }
+        }
+        handleResize()
+        const onResize = throttle(handleResize, 100)
+        window.addEventListener("resize", onResize)
+        return () => {
+            window.removeEventListener("resize", onResize)
+        }
+    }, [])
+
     return (
         <Fragment>
             <ALayout className={"w-full h-screen"}>
