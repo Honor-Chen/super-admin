@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react"
 import { Drawer } from "antd"
-import { IconMenu2, IconX } from "@tabler/icons-react"
+import { IconMenu2 } from "@tabler/icons-react"
 import AdminLogo from "@/components/AdminLogo"
 import RenderMenu from "@/layout/components/RenderMenu"
 
@@ -51,10 +51,16 @@ function SideDrawerMenuButton() {
                     setOpen(toggle)
                 }}
                 className={
-                    "text-[#637381] cursor-pointer flex items-center justify-center p-[8px] hover:bg-[#f5f5f5] rounded-[50%] dark:hover:bg-[#212B36]"
+                    "text-[#637381] cursor-pointer flex items-center justify-center p-[6px] hover:bg-[#f5f5f5] rounded-[50%] dark:hover:bg-[#212B36]"
                 }
             >
-                <IconMenu2 className={"text-[#637381]"} size={20} stroke={2}></IconMenu2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
+                    <g fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="2">
+                        <path d="M20 7H4" />
+                        <path d="M15 12H4" opacity="0.8" />
+                        <path d="M9 17H4" opacity="0.5" />
+                    </g>
+                </svg>
             </button>
         </Fragment>
     )
