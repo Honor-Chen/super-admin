@@ -9,11 +9,19 @@
 @mixin light {
     --color-primary: #2872e0;
     --color-dark-bg: #212b36;
+
+    --scrollbar-thumb: #eceef1;
+    --scrollbar-thumb-hover: #e8e8e8;
+    --scrollbar-thumb-hover-border: #eceef1;
 }
 
 @mixin dark {
     --color-primary: #2ba1ea;
     --color-dark-bg: #212b36;
+
+    --scrollbar-thumb: #212b36;
+    --scrollbar-thumb-hover: rgb(79, 79, 79);
+    --scrollbar-thumb-hover-border: rgb(140, 140, 140);
 }
 
 :root {
@@ -85,4 +93,33 @@
     animation:
         fade-in 0.3s ease-in-out,
         slide-in 0.3s ease-in-out;
+}
+
+.scrollbar {
+    &::-webkit-scrollbar {
+        z-index: 0 !important;
+        width: 8px;
+        height: 8px;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    &::-webkit-scrollbar-corner {
+        z-index: 0;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        width: 8px;
+        height: 8px;
+        border-radius: 3px;
+        z-index: 1 !important;
+        background-color: var(--scrollbar-thumb);
+        border: 1px solid rgba(0, 0, 0, 0);
+
+        &:hover {
+            background-color: var(--scrollbar-thumb-hover);
+            border: 1px solid var(--scrollbar-thumb-hover-border);
+        }
+    }
 }

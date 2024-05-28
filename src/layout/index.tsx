@@ -69,12 +69,19 @@ function Layout() {
                     </div>
                     <div
                         className={
-                            "px-[10px] w-full text-[--color-primary]  whitespace-nowrap overflow-hidden pt-[5px] text-[20px] pb-0 py-[10px] font-semibold text-center"
+                            "px-[10px] w-full text-[--color-primary]  whitespace-nowrap overflow-hidden text-[20px] py-[10px] font-semibold text-center"
                         }
                     >
                         {collapsed ? "S" : "Super Admin"}
                     </div>
-                    <RenderMenu />
+                    <div
+                        className={"menu-container overflow-y-auto scrollbar"}
+                        style={{
+                            height: "calc(100vh - 90px)",
+                        }}
+                    >
+                        <RenderMenu />
+                    </div>
                 </ALayout.Sider>
                 <ALayout>
                     <div className={"body w-full h-full overflow-auto dark:bg-[#161C24] bg-white"}>

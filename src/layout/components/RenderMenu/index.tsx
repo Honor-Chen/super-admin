@@ -101,26 +101,24 @@ function RenderMenu() {
     }, [permissions, i18n.language])
 
     return (
-        <div>
-            <Menu
-                className={"!border-none"}
-                selectedKeys={selectedKeys}
-                onSelect={({ selectedKeys }) => {
-                    setSelectedKeys(selectedKeys)
-                }}
-                defaultSelectedKeys={selectedKeys}
-                defaultOpenKeys={openKeys}
-                openKeys={openKeys}
-                onOpenChange={openKeys => {
-                    setOpenKeys(openKeys)
-                }}
-                style={{
-                    padding: "10px 10px",
-                }}
-                items={menuItems}
-                mode={"inline"}
-            />
-        </div>
+        <Menu
+            className={"!border-none"}
+            selectedKeys={selectedKeys}
+            onSelect={({ selectedKeys }) => {
+                setSelectedKeys(selectedKeys)
+            }}
+            defaultSelectedKeys={selectedKeys}
+            defaultOpenKeys={openKeys}
+            openKeys={openKeys}
+            onOpenChange={openKeys => {
+                setOpenKeys(openKeys)
+            }}
+            style={{
+                padding: "0px 6px",
+            }}
+            items={menuItems}
+            mode={"inline"}
+        />
     )
 }
 
