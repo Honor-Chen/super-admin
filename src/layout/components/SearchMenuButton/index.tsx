@@ -129,10 +129,6 @@ function SearchMenuButton() {
                         // safari blur fix
                         WebkitBackdropFilter: "blur(1px)",
                     } as any,
-                    body: {
-                        maxHeight: 380,
-                        overflow: "auto",
-                    },
                 }}
                 closeIcon={null}
                 open={showSearch}
@@ -204,7 +200,11 @@ function SearchMenuButton() {
                 }
             >
                 <div
-                    className={"py-[10px]"}
+                    className={"py-[5px] scrollbar"}
+                    style={{
+                        maxHeight: 380,
+                        overflowY: "auto",
+                    }}
                     ref={listRef}
                     onMouseEnter={() => {
                         keyDownDealingRef.current = false

@@ -31,7 +31,7 @@ function KeepAliveOutlet() {
                 strategy={"LRU"}
             >
                 <div
-                    className={"main scroll"}
+                    className={"main scroll scrollbar"}
                     style={{
                         overflow: "auto",
                         height: "calc(100vh - 93px)",
