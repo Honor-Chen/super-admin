@@ -6,7 +6,9 @@ import { ConfigProvider, ThemeConfig, theme } from "antd"
 import "antd/dist/reset.css"
 import { useAppConfig } from "@/store/config"
 import i18n from "i18next"
-
+import "dayjs/locale/zh-cn"
+import "dayjs/locale/en.js"
+import dayjs from "dayjs"
 // antd locals
 import zh from "antd/lib/locale/zh_CN"
 import en from "antd/lib/locale/en_US"
@@ -47,6 +49,8 @@ function App() {
 
     useLayoutEffect(() => {
         i18n.changeLanguage(locale)
+        console.log("locale", locale)
+        dayjs.locale(locale)
     }, [locale])
 
     useLayoutEffect(() => {

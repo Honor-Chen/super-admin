@@ -71,15 +71,6 @@
     overflow: auto;
 }
 
-@keyframes slide-in {
-    from {
-        transform: scale(0.95);
-    }
-    to {
-        transform: scale(1);
-    }
-}
-
 @keyframes fade-in {
     0% {
         opacity: 0;
@@ -90,9 +81,7 @@
 }
 
 .cache-component {
-    animation:
-        fade-in 0.3s ease-in-out,
-        slide-in 0.3s ease-in-out;
+    animation: fade-in 0.3s ease-in-out;
 }
 
 .scrollbar {

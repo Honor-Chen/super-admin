@@ -19,7 +19,8 @@
       "no_search_result": "No Search Result",
       "to_navigate": "to navigate",
       "to_open": "to open",
-      "items_number": "Total {{total}} items"
+      "items_number": "Total {{total}} items",
+      "super_table": "Super Table"
     },
     "drawer": {
       "close": "Close",

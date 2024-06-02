@@ -30,6 +30,7 @@
         "ahooks": "^3.7.11",
         "antd": "^5.16.5",
         "axios": "^1.7.2",
+        "dayjs": "^1.11.11",
         "fortea": "^1.0.9",
         "i18next": "^23.11.3",
         "i18next-browser-languagedetector": "^7.2.1",

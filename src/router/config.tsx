@@ -165,6 +165,18 @@ export const adminRoutes: Array<RouteConfig> = [
             },
         ],
     },
+
+    // super table
+    {
+        path: "/super-table",
+        meta: { title: "super_table" },
+        cache: true,
+        component: lazy(() => import("@/pages/index/super_table")),
+        checkToken: true,
+        search: true,
+        authority: ["admin"],
+        icon: <IconTableFilled size={18} />,
+    },
 ]
 
 const traverseRoutes = (

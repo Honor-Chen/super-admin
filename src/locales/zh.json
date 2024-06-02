@@ -19,7 +19,8 @@
       "no_search_result": "无搜索结果",
       "to_navigate": "选择",
       "to_open": "打开",
-      "items_number": "共 {{total}} 条"
+      "items_number": "共 {{total}} 条",
+      "super_table": "超级表格"
     },
     "drawer": {
       "close": "关闭",
